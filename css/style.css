@@ -1,0 +1,60 @@
+/*
+ * RS Mortgage Calculator v2.0
+ * ─────────────────────────────────────────────────────────────────────────────
+ * All visual / design styles (colors, fonts, sizes, spacing) are generated
+ * DYNAMICALLY by PHP in wp_head via mc_dynamic_css() and can be controlled
+ * from WP Admin → Settings → RS Mortgage Calc.
+ *
+ * This file only provides structural / reset rules that are safe to be static.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* Ensure the wrapper doesn't inherit unwanted theme resets */
+.mc-wrapper * {
+    box-sizing: border-box;
+}
+
+.mc-wrapper .mortgage {
+    /* Structural only — colors/sizing come from dynamic CSS */
+    display: block;
+    overflow: hidden;
+}
+
+.mc-wrapper .left,
+.mc-wrapper .right {
+    min-width: 0; /* prevents flex overflow */
+}
+
+/* Slider thumb cross-browser baseline */
+.mc-wrapper input[type=range]::-moz-range-thumb {
+    border: none;
+    cursor: pointer;
+}
+.mc-wrapper input[type=range]:focus {
+    outline: none;
+}
+
+/* Prevent theme styles bleeding into inputs */
+.mc-wrapper .input-box input:focus {
+    outline: none;
+    box-shadow: none;
+}
+@media screen and (max-width: 767px) {
+    
+    .mortgage-container input {
+        padding: 8px 12px !important; /* Adds internal spacing so text doesn't touch borders */
+        font-size: 16px !important;    /* Prevents iOS from auto-zooming when clicking the input */
+        height: 48px;                 /* Makes the input easier to tap with a thumb */
+        width: 100%;                  /* Ensures it takes up full width on mobile */
+    }
+
+    .mc-wrapper .heading-row h2 {
+        font-size: 28px;              /* Reduces size slightly so it doesn't wrap awkwardly */
+        line-height: 1.2;             /* Keeps spacing between lines tight but readable */
+          
+    }
+	.mc-wrapper .field-flex {
+		gap: 5px;
+	}
+    
+}
